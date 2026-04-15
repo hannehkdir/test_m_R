@@ -8,7 +8,15 @@ library(PxWebApiData)
 #Se funksjonene i pakken.
 ls("package:PxWebApiData")
 
-# For å hente ut fra SSBs database må variablene defineres. Ser på metadata for å finne navn på variablene i tabellen.
+# For å hente ut fra SSBs database må variablene defineres. Så på metadata for å finne navn på variablene i tabellen. Får en feilmelding, men den gir meg variabelnavnene.
+x <- PxWebApiData::ApiData(
+  12425,
+  ContentsCode = TRUE,
+  verbose = TRUE
+)
+
+
+# For å hente ut fra SSBs database må variablene defineres. Så på metadata for å finne navn på variablene i tabellen. Finner variabelnavnene under $id.
 PxWebApiData::meta_data(12425)
 
 arbstyrkstatus <- ApiData(
@@ -21,3 +29,7 @@ arbstyrkstatus <- ApiData(
   ContentsCode = TRUE,
   Tid = TRUE
 )
+
+names(arbstyrkstatus)
+str(arbstyrkstatus)
+
